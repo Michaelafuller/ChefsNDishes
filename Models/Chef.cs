@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ChefsNDishes.Models
 {
@@ -23,6 +24,15 @@ namespace ChefsNDishes.Models
         [Display(Name="Date of Birth")]
         [DataType(DataType.Date)]
         public DateTime DoB { get; set; }
+
+        [NotMapped]
+        public int Age 
+        { 
+            get
+            {
+                return DateTime.Now.Year - DoB.Year;
+            }
+        }
 
         public List<Dish> CreatedDishes { get; set; }
 

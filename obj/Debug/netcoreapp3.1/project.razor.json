@@ -14422,8 +14422,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\micha\\OneDrive\\Desktop\\stacks\\c_sharp\\ORMs\\ChefsNDishes\\Views\\Dish\\AllDishes.cshtml",
+      "TargetPath": "Views\\Dish\\AllDishes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\micha\\OneDrive\\Desktop\\stacks\\c_sharp\\ORMs\\ChefsNDishes\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\micha\\OneDrive\\Desktop\\stacks\\c_sharp\\ORMs\\ChefsNDishes\\Views\\Dish\\New.cshtml",
+      "TargetPath": "Views\\Dish\\New.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14434,11 +14444,6 @@
     {
       "FilePath": "c:\\Users\\micha\\OneDrive\\Desktop\\stacks\\c_sharp\\ORMs\\ChefsNDishes\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\micha\\OneDrive\\Desktop\\stacks\\c_sharp\\ORMs\\ChefsNDishes\\Views\\Dish\\Index.cshtml",
-      "TargetPath": "Views\\Dish\\Index.cshtml",
       "FileKind": "mvc"
     },
     {

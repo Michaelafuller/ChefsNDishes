@@ -34,6 +34,25 @@ namespace ChefsNDishes.Controllers
             return View("New");
         }
 
+        [HttpPost("/chef/create")]
+        public IActionResult CreateChef(Chef newChef)
+        {
+            if(ModelState.IsValid == false)
+            {
+                return View("New");
+            }
+
+            Chef chefCheck = db.Chefs.FirstOrDefault(c => c.FirstName == newChef.FirstName && c.LastName == newChef.LastName);
+            if (chefCheck == null)
+            {
+                db.Add(newChef);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("FirstName", "This chef already exists!");
+            return View("New");
+        }
+
         public IActionResult Privacy()
         {
             return View();
