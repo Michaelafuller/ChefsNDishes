@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ChefsNDishes.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ChefsNDishes.Controllers
 {
@@ -18,9 +19,19 @@ namespace ChefsNDishes.Controllers
         }
 
         [HttpGet("/")]
-        public IActionResult Index()
+        public ViewResult Index()
         {
-            return View("Index");
+            List<Chef> allChefs = db.Chefs
+                .Include(c => c.CreatedDishes)
+                .ToList();
+
+            return View("Index", allChefs);
+        }
+
+        [HttpGet("/chef/new")]
+        public ViewResult NewChef()
+        {
+            return View("New");
         }
 
         public IActionResult Privacy()
