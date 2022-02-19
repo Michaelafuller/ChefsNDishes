@@ -50,16 +50,16 @@ namespace ChefsNDishes.Controllers
                 return View("New");
             }
 
-            Dish dishCheck = db.Dishes.FirstOrDefault(d => d.Name == newDish.Name);
-            if (dishCheck == null)
-            {
-                // newDish.Creator = 
-                db.Add(newDish);
-                db.SaveChanges();
-                return RedirectToAction("AllDishes", "Dish");
-            }
-            ModelState.AddModelError("Name", "This dish already exists!");
-            return View("New");
+            // Dish dishCheck = db.Dishes.FirstOrDefault(d => d.Name == newDish.Name);
+            // if (dishCheck == null)
+            // {
+                // newDish.Creator = newDish.ChefId; 
+            db.Add(newDish);
+            db.SaveChanges();
+            return RedirectToAction("AllDishes", "Dish");
+            // }
+            // ModelState.AddModelError("Name", "This dish already exists!");
+            // return View("New");
         }
     }
 }

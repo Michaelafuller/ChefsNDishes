@@ -54,7 +54,7 @@ namespace ChefsNDishes.Migrations
                     b.Property<int>("Calories")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CreatorChefId")
+                    b.Property<int>("ChefId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -71,7 +71,7 @@ namespace ChefsNDishes.Migrations
 
                     b.HasKey("DishId");
 
-                    b.HasIndex("CreatorChefId");
+                    b.HasIndex("ChefId");
 
                     b.ToTable("Dishes");
                 });
@@ -80,7 +80,9 @@ namespace ChefsNDishes.Migrations
                 {
                     b.HasOne("ChefsNDishes.Models.Chef", "Creator")
                         .WithMany("CreatedDishes")
-                        .HasForeignKey("CreatorChefId");
+                        .HasForeignKey("ChefId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

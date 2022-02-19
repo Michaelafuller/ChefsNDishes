@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ChefsNDishes.Migrations
 {
-    public partial class First : Migration
+    public partial class first : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -33,25 +33,25 @@ namespace ChefsNDishes.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: false),
                     Calories = table.Column<int>(nullable: false),
-                    Description = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(maxLength: 45, nullable: false),
                     Tastiness = table.Column<int>(nullable: false),
-                    CreatorChefId = table.Column<int>(nullable: true)
+                    ChefId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Dishes", x => x.DishId);
                     table.ForeignKey(
-                        name: "FK_Dishes_Chefs_CreatorChefId",
-                        column: x => x.CreatorChefId,
+                        name: "FK_Dishes_Chefs_ChefId",
+                        column: x => x.ChefId,
                         principalTable: "Chefs",
                         principalColumn: "ChefId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Dishes_CreatorChefId",
+                name: "IX_Dishes_ChefId",
                 table: "Dishes",
-                column: "CreatorChefId");
+                column: "ChefId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

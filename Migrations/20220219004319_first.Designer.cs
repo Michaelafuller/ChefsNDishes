@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ChefsNDishes.Migrations
 {
     [DbContext(typeof(ChefsNDishesContext))]
-    [Migration("20220218225405_ModelsComplete")]
-    partial class ModelsComplete
+    [Migration("20220219004319_first")]
+    partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,7 +56,7 @@ namespace ChefsNDishes.Migrations
                     b.Property<int>("Calories")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CreatorChefId")
+                    b.Property<int>("ChefId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -73,7 +73,7 @@ namespace ChefsNDishes.Migrations
 
                     b.HasKey("DishId");
 
-                    b.HasIndex("CreatorChefId");
+                    b.HasIndex("ChefId");
 
                     b.ToTable("Dishes");
                 });
@@ -82,7 +82,9 @@ namespace ChefsNDishes.Migrations
                 {
                     b.HasOne("ChefsNDishes.Models.Chef", "Creator")
                         .WithMany("CreatedDishes")
-                        .HasForeignKey("CreatorChefId");
+                        .HasForeignKey("ChefId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

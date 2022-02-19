@@ -16,7 +16,7 @@ namespace ChefsNDishes.Models
         [Range(100,1500, ErrorMessage ="Realistic calorie range: 100-1500.")]
         [Display(Name = "# of Calories")]
         public int Calories { get; set; }
-        
+
         [Required(ErrorMessage = "is required")]
         [MaxLength(45, ErrorMessage ="please limit field: 10-45 characters")]
         [Display(Name = "Description of Dish")]
@@ -27,6 +27,7 @@ namespace ChefsNDishes.Models
         [Display(Name = "Tastiness")]
         public int Tastiness { get; set; }
 
+        public int ChefId { get; set; }
         public Chef Creator { get; set; }
     }
 }

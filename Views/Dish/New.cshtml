@@ -1,14 +1,14 @@
 @model Dish
-<h1>Add a Chef!</h1>
+<h1>Add a Dish!</h1>
 
 <form asp-controller ="Dish" asp-action="CreateDish" method="post">
     <label asp-for="Name"></label>
     <span class="text-danger" asp-validation-for="Name"></span>
     <input class ="form-control mb-3" asp-for="Name">
 
-    <label asp-for="Creator"></label>
-    <span class="text-danger" asp-validation-for="Creator"></span>
-    <select class="form-control mb-3" asp-for="Creator">
+    <label asp-for="ChefId"></label>
+    <span class="text-danger" asp-validation-for="ChefId"></span>
+    <select class="form-control mb-3" asp-for="ChefId">
         @foreach (Chef item in ViewBag.allChefs)
         {
             <option value="@item.ChefId">@item.FirstName @item.LastName</option>
